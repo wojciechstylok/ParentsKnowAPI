@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParentsKnowAPI", "ParentsKnowAPI\ParentsKnowAPI.csproj", "{2BB156B2-A7DF-44B6-89DF-10A44F1EC153}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BB156B2-A7DF-44B6-89DF-10A44F1EC153}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB156B2-A7DF-44B6-89DF-10A44F1EC153}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB156B2-A7DF-44B6-89DF-10A44F1EC153}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB156B2-A7DF-44B6-89DF-10A44F1EC153}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {497A602B-9FBF-4D0F-8F55-14DF5F1B3529}
+	EndGlobalSection
+EndGlobal
