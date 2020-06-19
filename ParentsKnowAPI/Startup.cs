@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ParentsKnowAPI.Entities;
+using AutoMapper;
 
 namespace ParentsKnowAPI
 {
@@ -26,10 +28,13 @@ namespace ParentsKnowAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<NoticeContext>();
+            services.AddScoped<NoticeSeeder>();
+            services.AddAutoMapper(this.GetType().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, NoticeSeeder noticeSeeder)
         {
             if (env.IsDevelopment())
             {
@@ -46,6 +51,8 @@ namespace ParentsKnowAPI
             {
                 endpoints.MapControllers();
             });
+
+            noticeSeeder.Seed();
         }
     }
 }
