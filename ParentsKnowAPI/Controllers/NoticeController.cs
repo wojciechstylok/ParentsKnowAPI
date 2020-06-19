@@ -49,17 +49,31 @@ namespace ParentsKnowAPI.Controllers
             return Ok(noticeDtos);
         }
 
-        [HttpPost]
-        public ActionResult Post([FromBody] NoticeDto model)
+        [HttpPost("{groupName}/{apiKey}")]
+        public ActionResult Post([FromBody] NoticeDto model, string groupName, Guid apiKey)
         {
+            var user = _noticeContext.Users.FirstOrDefault(u => u.ApiKey == apiKey);
+
+            if(user == null)
+            {
+                return NotFound("API key is incorrect");
+            }
+
+            var group = _noticeContext.Groups.FirstOrDefault(g => g.GroupName == groupName);
+
+            if(group == null)
+            {
+                return NotFound("Group name is incorrect");
+            }
+
             var notice = _mapper.Map<Notice>(model);
+            notice.PostedBy = user;
+            notice.Group = group;
 
             _noticeContext.Notices.Add(notice);
             _noticeContext.SaveChanges();
 
-            var key = notice.Name.Replace(" ", "-").ToLower();
-
-            return Created("api/notices/" + key, null);
+            return Created("api/notices/" + groupName, null);
         }
     }
 }

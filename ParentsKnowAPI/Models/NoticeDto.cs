@@ -10,5 +10,7 @@ namespace ParentsKnowAPI.Models
         public string Name { get; set; }
         public string Content { get; set; }
         public DateTime Date { get; set; }
+        public string Group { get; set; }
+        public string PostedBy { get; set; }
     }
 }

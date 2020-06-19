@@ -16,6 +16,9 @@ namespace ParentsKnowAPI
                 .ForMember(n => n.Group, map => map.MapFrom(notice => notice.Group.GroupName))
                 .ForMember(n => n.PostedBy, map => map.MapFrom(notice => notice.PostedBy.Login));
 
+            CreateMap<NoticeDto, Notice>()
+                .ForMember(n => n.Group, map => map.MapFrom(notice => notice.Group))
+                .ForMember(n => n.PostedBy, map => map.MapFrom(notice => notice.PostedBy));
         }
     }
 }
